@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -27,11 +28,9 @@ const Page = () => {
         <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
           <Masonry gutter="10px">
             {images.map((image, i) => (
-              <Image
+              <img
                 key={i}
                 src={image}
-                height={10}
-                width={10}
                 style={{ width: "100%", display: "block" }}
                 alt=""
               />

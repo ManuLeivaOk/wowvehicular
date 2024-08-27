@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { Menubar } from "primereact/menubar";
 import { Button } from "primereact/button";
@@ -86,9 +87,7 @@ export default function Home() {
               title={project.name}
               subTitle={project.description}
               header={
-                <Image
-                  width={10}
-                  height={10}
+                <img
                   alt={project.name}
                   src={project.image}
                   style={{ width: "100%", cursor: "pointer" }}
