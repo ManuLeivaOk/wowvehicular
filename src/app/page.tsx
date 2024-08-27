@@ -1,7 +1,6 @@
 "use client";
 import { Menubar } from "primereact/menubar";
 import { Button } from "primereact/button";
-import { Carousel } from "primereact/carousel";
 import { Card } from "primereact/card";
 import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
@@ -29,8 +28,11 @@ export default function Home() {
     },
   ];
 
-  const scrollToSection = (id) => {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const mapContainerStyle = {
@@ -84,7 +86,9 @@ export default function Home() {
               title={project.name}
               subTitle={project.description}
               header={
-                <img
+                <Image
+                  width={10}
+                  height={10}
                   alt={project.name}
                   src={project.image}
                   style={{ width: "100%", cursor: "pointer" }}
@@ -166,15 +170,3 @@ const projects = [
     image: "/trabajos/ram4.webp",
   },
 ];
-
-const projectTemplate = (project) => {
-  return (
-    <Card
-      title={project.name}
-      subTitle={project.description}
-      header={
-        <img alt={project.name} src={project.image} style={{ width: "100%" }} />
-      }
-    ></Card>
-  );
-};
